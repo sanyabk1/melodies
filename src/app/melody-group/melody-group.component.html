@@ -1,0 +1,13 @@
+<h4>{{group.title}}</h4>
+
+@for (melody of group.melodies; track melody) {
+  <div>
+    <p>Title: {{melody.title}}</p>
+    <p>Chords: {{melody.chords}}</p>
+    <a [attr.href]="'/midi/' + melody.title + '.mid'">Download</a>
+  </div>
+}
+
+<p>Tempo: {{group.originalTempo}}</p>
+<p>Key: {{group.originalKey}}</p>
+<p>Notes: {{group.notes}}</p>
