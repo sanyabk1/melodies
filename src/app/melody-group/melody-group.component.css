@@ -1,0 +1,12 @@
+.secondary-header {
+    font-size: 12px;
+    vertical-align: top;
+    
+    span {
+        background-color: blanchedalmond;
+        padding: 2px;
+        margin-left: 10px;
+        border: 1px solid black;
+        border-radius: 3px;
+    }
+}

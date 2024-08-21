@@ -1,13 +1,41 @@
-<h4>{{group.title}}</h4>
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>
+      {{group.title}}
+      <span class="secondary-header">
+        <span title="Original tempo">{{group.originalTempo}}bpm</span>
+        <span title="Original key">{{group.originalKey}}</span>
+      </span>
+    </mat-card-title>
+  </mat-card-header>
 
-@for (melody of group.melodies; track melody) {
-  <div>
-    <p>Title: {{melody.title}}</p>
-    <p>Chords: {{melody.chords}}</p>
-    <a [attr.href]="'/midi/' + melody.title + '.mid'">Download</a>
-  </div>
-}
+  <mat-card-content>
+    @for (melody of group.melodies; track melody) {
+    <div>
+      <p>Title: {{melody.title}}</p>
+      <p>Chords: {{melody.chords}}</p>
+      <a [attr.href]="'/midi/' + melody.title + '.mid'" title="Download">
+        <mat-icon>download</mat-icon>
+      </a>
+    </div>
+    }
+  </mat-card-content>
 
-<p>Tempo: {{group.originalTempo}}</p>
-<p>Key: {{group.originalKey}}</p>
-<p>Notes: {{group.notes}}</p>
+  <mat-card-footer>
+    <p>Notes: {{group.notes}}</p>
+
+    <mat-chip-set>
+      <mat-chip>charming</mat-chip>
+      <mat-chip>graceful</mat-chip>
+      <mat-chip>sassy</mat-chip>
+    </mat-chip-set>
+  </mat-card-footer>
+</mat-card>
+
+
+
+<!-- 
+<mat-icon>play_arrow</mat-icon>
+<mat-icon>play_circle</mat-icon>
+<mat-icon>pause</mat-icon>
+<mat-icon>pause_circle</mat-icon> -->

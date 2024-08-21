@@ -1,13 +1,7 @@
-<!-- <app-melody-group [group]="group"></app-melody-group> -->
+<app-melody-group [group]="group"></app-melody-group>
 
 <section id="section3">
   <midi-player loop sound-font #midiPlayer></midi-player>
-  <midi-visualizer type="piano-roll" id="myVisualizer"></midi-visualizer>
+  <midi-visualizer type="piano-roll" #midiVisualizer></midi-visualizer>
 </section>
 <button (click)="meow()">f</button>
-<!-- 
-<section id="section3">
-    <h2>Custom player and visualizer style</h2>
-    <midi-player src="/midi/Good Luck, Happy Trails I.mid" sound-font visualizer="#midi-visualizer"></midi-player>
-    <midi-visualizer id="midi-visualizer"></midi-visualizer>
-</section> -->

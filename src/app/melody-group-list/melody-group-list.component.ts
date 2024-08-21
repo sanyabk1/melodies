@@ -6,7 +6,7 @@ import { Melody } from '../models/melody';
 @Component({
   selector: 'app-melody-group-list',
   standalone: true,
-  imports: [MelodyGroupComponent, ],
+  imports: [MelodyGroupComponent],
   templateUrl: './melody-group-list.component.html',
   styleUrl: './melody-group-list.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -15,6 +15,7 @@ import { Melody } from '../models/melody';
 export class MelodyGroupListComponent implements AfterViewInit {
 
   @ViewChild('midiPlayer', { static: true }) midiPlayer: ElementRef;
+  @ViewChild('midiVisualizer', { static: true }) midiVisualizer: ElementRef;
 
   group = <MelodyGroup> {
     title: 'Good Luck, Happy Trails',
@@ -28,7 +29,18 @@ export class MelodyGroupListComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.midiPlayer.nativeElement.addVisualizer(document.getElementById('myVisualizer'));
+    this.midiPlayer.nativeElement.addVisualizer(this.midiVisualizer.nativeElement);
+
+    //should be calculated
+    this.midiVisualizer.nativeElement.config = {
+      noteHeight: 10,
+      pixelsPerTimeStep: 80,
+      // activeNoteRGB: '0, 255, 0',
+      // noteRGB: '0, 0, 255',
+      // noteSpacing: 20,
+      // minPitch: 30,
+      // maxPitch: 80
+    };
   }
   
   meow() {
